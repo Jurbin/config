@@ -1,0 +1,53 @@
+info:
+  component: Zuul Server
+
+server:
+  port: 8764
+  
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+logger:
+  elasticsearch:
+    enabled: true
+    host: elasticsearch
+    port: 9300
+
+eventBus:
+  broker: redis
+  redisHost: redis
+  redisPort: 6379
+  redisTopic: csrt-event-bus
+   
+logging: 
+  level:
+    com.cooksys.cloud.router: DEBUG
+    org.springframework.cloud.netflix.zuul.filters.ProxyRouteLocator: ERROR
+
+multipart:
+  maxFileSize: 54525952
+  maxRequestSize: 54525952
+
+zuul:
+  RibbonRoutingFilter: 
+    route: 
+      disable: true
+  PreDecorationFilter: 
+    route: 
+      disabe: true
+
+ribbon:
+  eureka:
+    enabled: false
+
+eureka:
+  instance:
+    non-secure-port: 8765
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/

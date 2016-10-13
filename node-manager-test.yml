@@ -1,0 +1,24 @@
+server:
+  port: 8080
+  
+  
+logger:
+  elasticsearch:
+    enabled: true
+    host: elasticsearch
+    port: 9300
+
+logging:
+  level:
+    com.cooksys: DEBUG
+
+eventBus:
+  broker: redis
+  redisHost: redis
+  redisPort: 6379
+  redisTopic: csrt-event-bus
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/

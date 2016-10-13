@@ -1,0 +1,25 @@
+spring:
+    redis:
+        host: redis
+
+logger:
+  elasticsearch:
+    enabled: true
+    host: elasticsearch
+    port: 9300
+
+eventBus:
+  broker: redis
+  redisHost: redis
+  redisPort: 6379
+  redisTopic: csrt-event-bus
+    
+server:
+  port: 8761
+  
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+      registerWithEureka: false
+      fetchRegistry: false
